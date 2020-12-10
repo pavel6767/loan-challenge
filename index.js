@@ -18,14 +18,12 @@ function get_days_of_power(R1, D1, R2, D2, R3, D3, K) {
   let i = 0
   while(i < rawLoans.length-1) {
     let temp = 1
-    if(rawLoans[i].day !== -1) {
-      let j = i+1
-      while(j < rawLoans.length && rawLoans[i].day === rawLoans[j].day) {
-        rawLoans[i].amount += rawLoans[j].amount
-        rawLoans[j].day = -1
-        j++
-        temp++
-      }
+    let j = i+1
+    while(j < rawLoans.length && rawLoans[i].day === rawLoans[j].day) {
+      rawLoans[i].amount += rawLoans[j].amount
+      rawLoans[j].day = -1
+      j++
+      temp++
     }
     i+=temp
   }
